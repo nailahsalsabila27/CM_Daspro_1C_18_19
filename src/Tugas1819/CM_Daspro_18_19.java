@@ -6,8 +6,18 @@ import java.util.Scanner;
 
 public class CM_Daspro_18_19 {
     static Scanner nalalsa = new Scanner(System.in);
-    public static String[][] menuKategori = new String[10][2];
+    static String[][] menuKategori = new String[10][2];
     static int[] stok = new int[10];
+    static {
+        menuKategori[0] = new String[] {"kopi hitam" , "minuman"};
+        menuKategori[1] = new String[] {"cappucino" , "minuman"};
+        menuKategori[2] = new String[] {"teh tarik" , "minuman"};
+        stok[0] = 10;
+        stok[1] = 2;
+        stok[2] = 8;
+    }
+    
+    static String[] heading = {"No." , "Nama item" , "kategori" , "stok"};
     public static void main(String[] args) {
       menu();
     }
@@ -37,7 +47,28 @@ public class CM_Daspro_18_19 {
     }
     
     public static void tampilInventori(String[][] menuKategori, int[] stok) {
-     
+        System.out.println("======= DATA INVENTORI ======");
+        for (int i = 0; i < heading.length; i ++) {
+            System.out.printf("%-15s" , heading[i]);
+
+        }
+        System.out.println();
+        System.out.println("---------------------------------------------------");
+        
+        for (int i =0;i < menuKategori.length; i++ ) {
+            if (menuKategori[i][0] == null) {
+                continue;
+            }
+            
+            for (int j = 0; j <= menuKategori[i].length; j++) {
+                if (j == 0) {
+                    System.out.printf("%-15d", (i+1));
+                } else if ( j <= menuKategori[i].length) {
+                    System.out.printf("%-15s", menuKategori[i][j-1]);
+                }
+            }
+            System.out.printf("%-15d%n", stok[i]);
+        }  
     }
     
     public static void tambahStok() {
