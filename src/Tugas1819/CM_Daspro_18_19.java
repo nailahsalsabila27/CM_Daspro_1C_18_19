@@ -80,17 +80,51 @@ public class CM_Daspro_18_19 {
           System.out.println("Item tidak ditemukan.");
           return;
         }
-      System.out.print("Masukkan jumlah stok yang ingin ditambahkan: ");
-      int jumlah = nalalsa.nextInt();
-      if (jumlah > 0) {
-        stok[nomor - 1] += jumlah;
-        System.out.println("Stok " + menuKategori[nomor - 1][0] + " berhasil ditambah. Stok sekarang: " + stok[nomor - 1]);
+     
+      while (true) {
+        System.out.print("Masukkan jumlah stok yang ingin ditambahkan: ");
+        int jumlah = nalalsa.nextInt();
+        if (jumlah <= 0) {
+            System.out.println("harus lebih dari 0");
+            continue;
+          } else {
+            stok[nomor - 1] += jumlah;
+            System.out.println("Stok " + menuKategori[nomor - 1][0] + " berhasil ditambah. Stok sekarang: " + stok[nomor - 1]);
+            break;
+          }
       }
     }
     
 
     public static void tambahItem () {
-    
+        System.out.println("===== TAMBAH ITEM BARU =====");
+        System.out.print("Masukkan nama item baru : ");
+        String nama = nalalsa.nextLine();
+        nalalsa.nextLine();
+        System.out.print("Masukkan kategori item baru : ");
+        String kategori = nalalsa.nextLine();
+        int jumlah = 0;
+        while (true) {
+            System.out.print("Masukkan Jumlah stok awal : ");
+            jumlah = nalalsa.nextInt();
+            if (jumlah <= 0) {
+                System.out.println("harus lebih dari 0");
+                continue;
+              } else {
+                break;
+              }
+        }
+
+        for ( int i = 0; i < menuKategori.length; i++) {
+            if (menuKategori[i][0] == null) {
+                menuKategori[i][0] = nama;
+                menuKategori[i][1] = kategori;
+                stok[i] += jumlah;
+                System.out.println("item baru berhasil ditambahkan: "  + nama + " (" + kategori + ") - Stok: " + jumlah);
+                return;
+            }
+        }
+        System.out.println("penuh,tidak bisa menambahkan item lagi");
 
     }
     
