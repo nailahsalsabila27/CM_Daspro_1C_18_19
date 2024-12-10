@@ -36,10 +36,11 @@ public class CM_Daspro_18_19 {
           if (menu == 1) {
            tampilInventori(menuKategori, stok);
           } else if (menu == 2) {
-            tambahStok();;
+            tambahStok();
           } else if (menu == 3){
             tambahItem();
           } else if (menu == 4) {
+            System.out.println("keluar dari program, terimakasih :)");
             break;  
           }
       }
@@ -97,16 +98,17 @@ public class CM_Daspro_18_19 {
     
 
     public static void tambahItem () {
+        nalalsa.nextLine();
         System.out.println("===== TAMBAH ITEM BARU =====");
         System.out.print("Masukkan nama item baru : ");
         String nama = nalalsa.nextLine();
-        nalalsa.nextLine();
         System.out.print("Masukkan kategori item baru : ");
         String kategori = nalalsa.nextLine();
         int jumlah = 0;
         while (true) {
             System.out.print("Masukkan Jumlah stok awal : ");
             jumlah = nalalsa.nextInt();
+            nalalsa.nextLine();
             if (jumlah <= 0) {
                 System.out.println("harus lebih dari 0");
                 continue;
