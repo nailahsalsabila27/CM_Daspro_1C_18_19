@@ -9,26 +9,31 @@ public class CM_Daspro_18_19 {
     public static String[][] menuKategori = new String[10][2];
     static int[] stok = new int[10];
     public static void main(String[] args) {
-        
-        while (true) {
-            System.out.println("===== MENU INVENTORI KAFE =====");
-            System.out.println("1. Tampilkan Inventori. ");
-            System.out.println("2. Tambah Stok untuk Item yang ada. ");
-            System.out.println("3. Tambah Item Baru. ");
-            System.out.println("4. keluar.  ");
-            System.out.print("pilih menu : ");
-            int menu = nalalsa.nextInt();
+      menu();
+    }
     
-            if (menu == 1) {
-             tampilInventori(menuKategori, stok);
-            } else if (menu == 2) {
-              tambahStok();;
-            } else if (menu == 3){
-              tambahItem();
-            } else if (menu == 4) {
-              break;  
-            }
-        }
+    public static void menu(){
+      
+      while (true) {
+          System.out.println("===== MENU INVENTORI KAFE =====");
+          System.out.println("1. Tampilkan Inventori. ");
+          System.out.println("2. Tambah Stok untuk Item yang ada. ");
+          System.out.println("3. Tambah Item Baru. ");
+          System.out.println("4. keluar.  ");
+          System.out.print("pilih menu : ");
+          int menu = nalalsa.nextInt();
+  
+          if (menu == 1) {
+           tampilInventori(menuKategori, stok);
+          } else if (menu == 2) {
+            tambahStok();;
+          } else if (menu == 3){
+            tambahItem();
+          } else if (menu == 4) {
+            break;  
+          }
+      }
+      
     }
     
     public static void tampilInventori(String[][] menuKategori, int[] stok) {
